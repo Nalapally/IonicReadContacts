@@ -1,0 +1,74 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-divider">Recent Updates</div>
+      <div class="item item-body">
+        <div>
+          There is a fire in <b>sector 3</b>
+        </div>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-divider">Health</div>
+      <div class="item item-body">
+        <div>
+          You ate an apple today!
+        </div>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-divider">Upcoming</div>
+      <div class="item item-body">
+        <div>
+          You have <b>29</b> meetings on your calendar tomorrow.
+        </div>
+      </div>
+    </div>
+
+    <button class="button button-full button-positive" ng-click="loadData()">
+      Full Width Block Button
+    </button>
+
+    <ul class="list">
+      <li class="item" ng-repeat="x in names">
+        {{ x.Name }}
+      </li>
+    </ul>
+
+
+    <label class="item item-input">
+      <span class="input-label">Telephone</span>
+      <input type="tel" ng-model="phone">
+    </label>
+
+    <button class="button button-full button-balanced" ng-click="call(phone)">
+      Call !
+    </button>
+
+    <a href="tel:7842765587" target="_blank">Tap to call</a>
+
+    <button class="button button-full button-royal" ng-click="getContactList()">
+      Load Contacts !
+    </button>
+
+    <div class="list" ng-show="contacts">
+      <div class="card" ng-repeat="contact in contacts">
+        <div class="item item-divider">
+          {{ contact.name.formatted }}
+        </div>
+        <div class="item item-text-wrap">
+          <p><strong>Phone(s)</strong></p>
+          <div ng-repeat="number in contact.phoneNumbers">
+            <a href="tel:{{number.value}}" target="_blank">{{number.value}}</a>
+          </div>
+          <p><strong>Email(s)</strong></p>
+          <div ng-repeat="email in contact.emails">
+            <p>{{ email.value }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </ion-content>
+</ion-view>
